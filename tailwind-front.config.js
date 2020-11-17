@@ -3,7 +3,7 @@ module.exports = {
         // removeDeprecatedGapUtilities: true,
         // purgeLayersByDefault: true,
     },
-    purge: ['./resources/views/front.blade.php', ],
+    purge: ['./resources/views/front.blade.php', './resources/js/Front/app.vue'],
     theme: {
         screens: {
             'smm': '320px',
