@@ -93,7 +93,7 @@ class ProposalsController extends Controller
                 'key'             => '49b6f88d234a89f3b83eb3a2dc6dbebc', //Ваш секретный токен
                 'order_id'        => number_format(round(microtime(true)*10),0,'.',''), //идентификатор (код) заказа (*автоматически*)
                 'country'         => 'UA',                         // Географическое направление заказа
-                'office'          => '1',                          // Офис (id в CRM)
+                'office'          => '5',                          // Офис (id в CRM)
                 'products'        => $products,                    // массив с товарами в заказе
                 'bayer_name'      => Request::get('name'),            // покупатель (Ф.И.О)
                 'phone'           => Request::get('phone'),           // телефон
