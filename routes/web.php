@@ -9,7 +9,7 @@ use App\Http\Controllers\ReportsController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\ProposalsController;
 use Illuminate\Support\Facades\Route;
-use Jenssegers\Agent\Agent;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -153,18 +153,4 @@ Route::get('500', function () {
     echo $fail;
 });
 Route::post('proposal/create', [ProposalsController::class, 'store']);
-Route::get('777', function () {
-    $data = array(
-        'key'      => '49b6f88d234a89f3b83eb3a2dc6dbebc', //Ваш секретный токен
-        'order_id' => '16057290794' //(можно передать несколько через запятую) максимально 100 записей!
-    );
-    // запрос
-    $curl = curl_init();
-    curl_setopt($curl, CURLOPT_URL, 'http://belya.lp-crm.biz/api/getOrdersByID.html');
-    curl_setopt($curl, CURLOPT_POST, true);
-    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
-    $out = curl_exec($curl);
-    curl_close($curl);
-    dd($out);
-});
+
