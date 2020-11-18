@@ -66,7 +66,7 @@ class ProposalsController extends Controller
 		try {
 
             \DB::beginTransaction();    
-            
+            $out ='';
             $agent = new Agent();
 
             $proposal = new Proposal;
@@ -79,7 +79,7 @@ class ProposalsController extends Controller
             $proposal->agent_platform=  $agent->platform();
             $proposal->agent_browser= $agent->browser();
             $proposal->save();
-            $products_list = array(
+             $products_list = array(
                 0 => array(
                         'product_id' => 171,    //код товара (из каталога CRM)
                         'price'      => 399, //цена товара 1
@@ -120,7 +120,7 @@ class ProposalsController extends Controller
             curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
             curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
             $out = curl_exec($curl);
-            curl_close($curl);   
+            curl_close($curl);    
             \DB::commit();
 
         } catch (\Exception $e) {

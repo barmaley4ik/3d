@@ -58,7 +58,7 @@
       <template v-else>
         <div class="flex min-h-40 mx-4 items-end"> 
             <button class="bg-gray-300 focus:outline-none py-2 px-2 w-full md:text-medium lg:text-lg "
-            @click.prevent="$modal.hide('modal'); success= false; title= 'Оформление заказа'">
+            @click.prevent="$modal.hide('modal')">
                 ЗАКРЫТЬ
             </button>
         </div>
@@ -144,7 +144,7 @@ export default {
        // console.log(hours ='0' + hours);
        var labelDay = days === 1 ? ' день ' : (days === 0 ? '' :' дня ')
 
-        var localCounterDay = days + labelDay +
+        var localCounterDay = (days >0 ? days : '') + labelDay +
             hours + " : " +
             minutes + " : " + seconds;
 
