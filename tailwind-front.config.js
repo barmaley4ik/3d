@@ -41,11 +41,15 @@ module.exports = {
             'md': '20rem'
 
         },
+        minHeight: {
+            '40': '40%'
 
+        },
         extend: {},
     },
     variants: {
         maxWidth: ['responsive', 'hover', 'focus'],
+        minHeight: ['responsive', 'hover', 'focus'],
         backgroundColor: ['focus'],
         borderColor: ['responsive', 'focus', 'hover'],
         outline: ['responsive', 'focus', 'hover', 'active']

@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="csrf-token" content="{{csrf_token()}}">
     <link href="{{ mix('/css/front/style.css') }}" " rel="stylesheet ">
     <title>3D Ручка. Акция | Товары для дома и семьи</title>
     <link href="./img/icon_homex48.png " type="image/png " rel="icon " sizes="48x48 " />
@@ -176,11 +177,11 @@
             <span class="text-sm ">10.09.2020</span>
             <div class="flex-1 my-2 font-mono text-justify md:text-medium ">
                 "Захотелось ребёнку 3D ручку. Решили взять такую, так как рисует двумя видами пластика ABS и PLA, последний особенно важен так как не токсичен и противоаллергенный. Так же есть дисплей и кнопки для регулировки температуры нагрева пластика и выбора вида пластика. Вот и дочка на свой день рождения получила подарок ))). Интересный прибор, развивает воображение, координацию и точности. Можно делать всякие интересные штучки. "
-            </div>            
+            </div>
         </div>
     </div>
     <div class="flex text-smm py-2 text-center font-bold justify-center border-t-2 uppercase ">
-        Товары для дома и семьи. 2020 год.
+        Товары для дома и семьи. 2020
 
     </div>
     </div>

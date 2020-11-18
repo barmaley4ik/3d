@@ -7,8 +7,9 @@ use App\Http\Controllers\ImagesController;
 use App\Http\Controllers\OrganizationsController;
 use App\Http\Controllers\ReportsController;
 use App\Http\Controllers\UsersController;
+use App\Http\Controllers\ProposalsController;
 use Illuminate\Support\Facades\Route;
-
+use Jenssegers\Agent\Agent;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -151,3 +152,5 @@ Route::get('500', function () {
 
     echo $fail;
 });
+Route::post('proposal/create', [ProposalsController::class, 'store']);
+
