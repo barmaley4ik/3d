@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\ServiceProvider;
 use League\Glide\Server;
+use Illuminate\Support\Facades\Schema;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -21,6 +22,11 @@ class AppServiceProvider extends ServiceProvider
     {
         $this->registerGlide();
         $this->registerLengthAwarePaginator();
+    }
+
+    public function boot()
+    {
+        Schema::defaultStringLength(191);
     }
 
     protected function registerGlide()
