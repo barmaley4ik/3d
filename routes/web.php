@@ -141,7 +141,7 @@ Route::group(['prefix' => 'admin'], function() {
     Route::get('/img/{path}', [ImagesController::class, 'show'])->where('path', '.*');
 
     });
-Route::view('/', 'front',['day' => '2025-11-21T21:00:00']);
+Route::view('/', 'front',['day' => '2020-11-25T21:00:00']);
 // 500 error
 
 Route::get('500', function () {
