@@ -48,6 +48,9 @@ class ProposalsController extends Controller
             'name' => ['required', 'max:60'],
             'phone' => ['required', 'max:15', 'min:15'],
             'plastic' => ['required'],
+            'price'=> ['required'],
+            'price_plastik'=> ['required'],
+            'count_plastik'=> ['required'],
             'summa' => ['nullable'],
             'agent_type' => ['nullable', 'max:50'],
             'agent_device' => ['nullable', 'max:100'],
@@ -65,7 +68,7 @@ class ProposalsController extends Controller
 
 		try {
 
-            \DB::beginTransaction();    
+            \DB::beginTransaction();
             $out ='';
             $agent = new Agent();
 
@@ -81,11 +84,17 @@ class ProposalsController extends Controller
             $proposal->save();
              $products_list = array(
                 0 => array(
-                        'product_id' => 171,    //код товара (из каталога CRM)
-                        'price'      => 399, //цена товара 1
-                        'count'      => '1',                     //количество товара 1
-        
+                    'product_id' => 171,    //код ручки (из каталога CRM)
+                    'price'      => Request::get('price'), //цена товара 1
+                    'count'      => '1',                     //количество товара 1
+
                 ),
+                1 => array(
+                    'product_id' => 149,    //код пластика (из каталога CRM)
+                    'price'      => Request::get('price_plastik'), //цена товара 1
+                    'count'      => Request::get('count_plastik'),                     //количество товара 1
+
+            ),
             );
             $products = urlencode(serialize($products_list));
             $sender = urlencode(serialize($_SERVER));
@@ -102,7 +111,7 @@ class ProposalsController extends Controller
                 'delivery'        => '',        // способ доставки (id в CRM)
                 'delivery_adress' => '', // адрес доставки
                 'payment'         => '',                           // вариант оплаты (id в CRM)
-                'sender'          => $sender,                        
+                'sender'          => $sender,
                 'utm_source'      => '',  // utm_source
                 'utm_medium'      => '',  // utm_medium
                 'utm_term'        => '',    // utm_term
@@ -120,7 +129,7 @@ class ProposalsController extends Controller
             curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
             curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
             $out = curl_exec($curl);
-            curl_close($curl);    
+            curl_close($curl);
             \DB::commit();
 
         } catch (\Exception $e) {
@@ -131,7 +140,7 @@ class ProposalsController extends Controller
                 'success' => false,
                 'message' => 'Ошибка создания заказа!'
             ], 500);
-        }            
+        }
 
 
         return response()->json([
@@ -139,5 +148,5 @@ class ProposalsController extends Controller
             'message' => 'Спасибо, за заказ! <br><br><br> Заказ создан! <br> Ожидайте звонка для подтверждения.',
             'msgcrm' => $out
         ], 200);
-    }    
+    }
 }

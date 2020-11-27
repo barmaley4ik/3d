@@ -145,8 +145,8 @@ Route::group(['prefix' => 'admin'], function() {
     $interval = new DateInterval('PT23H');
     $date->add($interval);
     $price = 399;
-    $price_plastik = 79;
-    Route::view('/', 'front',['day' => $date->format('Y-m-d\TH:i:s'), 'price'=> $price, 'price_plastik'=> $price_plastik]);
+    $pricePlastik = 79;
+    Route::view('/', 'front',['day' => $date->format('Y-m-d\TH:i:s'), 'price'=> $price, 'pricePlastik'=> $pricePlastik]);
 // 500 error
 
 Route::get('500', function () {

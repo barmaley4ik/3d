@@ -82,7 +82,7 @@ src="https://www.facebook.com/tr?id=401910537915615&ev=PageView&noscript=1"
                 <div class="text-red-600 font-bold md:text-xl ">{{ $price }} грн</div>
 
             </div>
-            <button-example :day="{{ json_encode($day) }}"> </button-example>
+            <button-example :day="{{ json_encode($day) }}" :price="{{ $price }}" :price-plastik="{{ $pricePlastik }}"> </button-example>
         </div>
 
     </div>
@@ -103,7 +103,7 @@ src="https://www.facebook.com/tr?id=401910537915615&ev=PageView&noscript=1"
             <img src="./img/PLA-plastic.jpg " class="object-contain w-full md:w-1/2 lg:w-1/2 ">
         </div>
         <div class="flex-1 w-full font-mono text-smm text-justify px-4 lg:mr-20 md:text-medium lg:order-3 self-center ">
-            Только у нас при покупке 3D ручки дополнительный PLA пластик - <span class="text-red-600 font-bold ">{{ $price_plastik }} грн за 10 метров!</span> Цвета уточняйте у менеджера </div>
+            Только у нас при покупке 3D ручки дополнительный PLA пластик - <span class="text-red-600 font-bold ">{{ $pricePlastik }} грн за 10 метров!</span> Цвета уточняйте у менеджера </div>
     </div>
     <div class="flex flex-wrap flex-row text-smm my-4 mx-2 ">
         <div class="flex flex-wrap w-full text-medium uppercase justify-center mb-2 md:text-xl md:font-medium ">Отличия от других 3D ручек</div>
@@ -181,7 +181,7 @@ src="https://www.facebook.com/tr?id=401910537915615&ev=PageView&noscript=1"
     <div class="flex flex-wrap text-smm my-4 text-center justify-center">
         <div class="flex w-full text-medium uppercase justify-center text-red-600 m-2 font-bold ">Осталось 84 штуки.
             <br>Успей заказать по акционной цене!</div>
-            <button-example :day="{{ json_encode($day) }}"> </button-example>
+            <button-example :day="{{ json_encode($day) }}" :price="{{ $price }}" :price-plastik="{{ $pricePlastik }}"> </button-example>
     </div>
     <div class="flex flex-wrap flex-row text-smm my-4 ">
         <div class="flex flex-wrap text-medium uppercase justify-center w-full md:text-xl md:font-medium ">Отзывы</div>

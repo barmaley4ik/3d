@@ -95,14 +95,14 @@ export default {
       plastic: 0,
       optionPlastic:[
         { text: '---не выбрано-- ', value: '0' },
-        { text: '10 м. PLA пластика, к заказу +'+this.pricePlastik *1 +' грн.', value: '1' },
-        { text: '20 м. PLA пластика, к заказу +'+this.pricePlastik *2 +' грн.', value: '2' },
-        { text: '30 м. PLA пластика, к заказу +'+this.pricePlastik *3 +' грн.', value: '3' },
-        { text: '40 м. PLA пластика, к заказу +'+this.pricePlastik *4 +' грн.', value: '4' },
-        { text: '50 м. PLA пластика, к заказу +'+this.pricePlastik *5 +' грн.', value: '5' },
-        { text: '60 м. PLA пластика, к заказу +'+this.pricePlastik *6 +' грн.', value: '6' },
-        { text: '70 м. PLA пластика, к заказу +'+this.pricePlastik *7 +' грн.', value: '7' },
-        { text: '100 м. PLA пластика, к заказу +'+this.pricePlastik *10 +' грн.', value: '10' },
+        { text: '10 м. PLA пластика, к заказу +'+this.pricePlastik*1 +' грн.', value: '1' },
+        { text: '20 м. PLA пластика, к заказу +'+this.pricePlastik*2 +' грн.', value: '2' },
+        { text: '30 м. PLA пластика, к заказу +'+this.pricePlastik*3 +' грн.', value: '3' },
+        { text: '40 м. PLA пластика, к заказу +'+this.pricePlastik*4 +' грн.', value: '4' },
+        { text: '50 м. PLA пластика, к заказу +'+this.pricePlastik*5 +' грн.', value: '5' },
+        { text: '60 м. PLA пластика, к заказу +'+this.pricePlastik*6 +' грн.', value: '6' },
+        { text: '70 м. PLA пластика, к заказу +'+this.pricePlastik*7 +' грн.', value: '7' },
+        { text: '100 м. PLA пластика, к заказу +'+this.pricePlastik*10 +' грн.', value: '10' },
       ],
       counterDay: '',
       open: false,
@@ -166,6 +166,10 @@ export default {
       form_data.append( 'phone', this.tel)
       form_data.append( 'plastic', this.plastic)
       form_data.append( 'summa', this.Summa)
+      form_data.append( 'price', this.price)
+      form_data.append( 'price_plastik', this.pricePlastik)
+      form_data.append( 'count_plastik', this.plastic)
+
       this.axios.post('/proposal/create', form_data).then(response => {
         var success = response.data.success
         var message = response.data.message
