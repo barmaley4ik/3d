@@ -141,7 +141,12 @@ Route::group(['prefix' => 'admin'], function() {
     Route::get('/img/{path}', [ImagesController::class, 'show'])->where('path', '.*');
 
     });
-Route::view('/', 'front',['day' => '2020-11-26T23:59:00']);
+    $date= new Datetime(date('Y-m-d'));
+    $interval = new DateInterval('PT23H');
+    $date->add($interval);
+    $price = 399;
+    $price_plastik = 79;
+    Route::view('/', 'front',['day' => $date->format('Y-m-d\TH:i:s'), 'price'=> $price, 'price_plastik'=> $price_plastik]);
 // 500 error
 
 Route::get('500', function () {
